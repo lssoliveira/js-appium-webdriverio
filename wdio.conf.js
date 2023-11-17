@@ -55,7 +55,7 @@ exports.config = {
     capabilities: [{
         platformName: "Android",
         "appium:platformVersion": "11.0",
-        "appium:deviceName": "Pixel_3a_API_30",
+        "appium:deviceName": "Pixel_3a",
         "appium:automationName": "UIAutomator2",
         "appium:app": path.join(process.cwd(), "app/android/ApiDemos-debug.apk")
     }],
@@ -110,7 +110,7 @@ exports.config = {
     services: [
         ['appium', {
             args: {
-                address: '0.0.0.0',
+                address: '127.0.0.1',
                 port: 4723,
                 basePath: '/wd/hub'
             },
