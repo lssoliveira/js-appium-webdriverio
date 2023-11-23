@@ -24,7 +24,8 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/*.js'
+        //'./test/specs/*.js'
+        './test/specs/android/colorNote/delete-note.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -57,7 +58,9 @@ exports.config = {
         "appium:platformVersion": "11.0",
         "appium:deviceName": "Pixel_3a",
         "appium:automationName": "UIAutomator2",
-        "appium:app": path.join(process.cwd(), "app/android/ApiDemos-debug.apk")
+        // "appium:app": path.join(process.cwd(), "app/android/apiDemos.apk"),
+        "appium:app": path.join(process.cwd(), "app/android/colorNote.apk"),
+        "appium:autoGrantPermissions": true
     }],
 
     //
@@ -125,7 +128,7 @@ exports.config = {
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
     framework: 'mocha',
-    
+
     //
     // The number of times to retry the entire specfile when it fails as a whole
     // specFileRetries: 1,
