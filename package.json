@@ -23,6 +23,7 @@
     "expect-webdriverio": "^4.5.1"
   },
   "scripts": {
-    "wdio": "wdio run ./wdio.conf.js"
+    "wdio": "wdio run ./wdio.conf.js",
+    "android": "npx wdio run config/wdio.android.conf.js --spec "
   }
 }

@@ -8,6 +8,18 @@ describe('Delete Note', () => {
         await driver.back();
     });
 
+    beforeEach(() => {
+        console.log('---------BEFORE EACH HOOK---------')
+    });
+
+    after(() => {
+        console.log('---------AFTER HOOK---------')
+    });
+
+    afterEach(() => {
+        console.log('---------AFTER EACH HOOK---------')
+    });
+
     it('Delete a note & check the note in trash can', async () => {
         // Arrange
         const note = await EditNoteScreen.firstNote.getText();

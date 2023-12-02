@@ -1,12 +1,9 @@
-const path = require('path');
-
 exports.config = {
     //
     // ====================
     // Runner Configuration
     // ====================
     // WebdriverIO supports running e2e tests as well as unit and component tests.
-    runner: 'local',
     //
     // ==================
     // Specify Test Files
@@ -23,10 +20,6 @@ exports.config = {
     // then the current working directory is where your `package.json` resides, so `wdio`
     // will be called from there.
     //
-    specs: [
-        //'./test/specs/*.js'
-        './test/specs/android/colorNote/delete-note.spec.js'
-    ],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -53,15 +46,6 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [{
-        platformName: "Android",
-        "appium:platformVersion": "11.0",
-        "appium:deviceName": "Pixel_3a",
-        "appium:automationName": "UIAutomator2",
-        // "appium:app": path.join(process.cwd(), "app/android/apiDemos.apk"),
-        "appium:app": path.join(process.cwd(), "app/android/colorNote.apk"),
-        "appium:autoGrantPermissions": true
-    }],
 
     //
     // ===================
@@ -70,7 +54,11 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevels: {
+        webdriver: 'info',
+        '@wdio/appium-service': 'silent',
+        '@wdio/cli:utils': 'silent'
+    },
     //
     // Set specific log levels per logger
     // loggers:
@@ -110,17 +98,6 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: [
-        ['appium', {
-            args: {
-                address: '127.0.0.1',
-                port: 4723,
-                basePath: '/wd/hub'
-            },
-            logPath: './'
-        }]
-    ],
-
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks
@@ -128,7 +105,6 @@ exports.config = {
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
     framework: 'mocha',
-
     //
     // The number of times to retry the entire specfile when it fails as a whole
     // specFileRetries: 1,
